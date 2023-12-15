@@ -40,9 +40,12 @@ class Dijkstra:
 def calculate(path):
     lst = Dijkstra(len(path))
     for i in range(0,len(path)):
-        for j in range(0, len(path)):
-            if abs(j-i) == path[j]:
-                lst.add_edge(j, i, path[j])
+            indx = i + path[i]
+            indx2 = i - path[i]
+            if 0 <= indx < len(path):
+                lst.add_edge(i, indx, path[i])
+            if 0 <= indx2 < len(path):
+                lst.add_edge(i, indx2, path[i])
                 #print(f"added j, i: {j, i}")
     distance = lst.find_distances(0)
    # print(distance)
