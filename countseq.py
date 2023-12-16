@@ -1,6 +1,16 @@
 # Montako nousevaa alijonoa?
 
-def count_coins(x, coins):
+def count(items):
+    result = 0
+
+    for i in range(len(items)):
+        for j in range(i):
+            if items[j] < items[i]:
+                result += 1
+    
+    return result
+
+def count3(x, coins):
     result = {}
     
     result[0] = 1
@@ -12,7 +22,7 @@ def count_coins(x, coins):
                 
     return result[x]
 
-def count(numbers):
+def count1(numbers):
     result = {}
     
     result[0] = 1
