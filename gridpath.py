@@ -49,6 +49,7 @@ def count(matrix):
         for j in range(0, len(matrix[0])):
             places[inde]=matrix[i][j]
             inde += 1
+    print(places)
 
     g = Dijkstra(lenght)
     for node in places.keys():
@@ -59,9 +60,12 @@ def count(matrix):
                  g.add_edge(node, node2, places[node])
     distance = g.find_distances(0)
 
-    return g.graph
     return distance[max(nodes)] + matrix[-1][-1]
 
 if __name__ == "__main__":
     r = [[4, 3, 6, 10, 8, 10, 5, 4], [9, 2, 9, 10, 10, 1, 2, 7]]
     print(count(r)) # 48
+    s = [[2, 1, 4, 8],
+         [3, 8, 7, 2],
+         [9, 5, 1, 2]]
+    print(count(s)) # 17
